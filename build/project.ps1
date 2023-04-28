@@ -1,5 +1,3 @@
-$project = Split-Path -Path (Get-Location) -Leaf
-
 function build {
   New-Item -Type Directory -Path build -ErrorAction Ignore
   Push-Location build
@@ -9,9 +7,11 @@ function build {
 }
 
 function run {
+  param (
+      $command = "test"
+      )
     Push-Location build
-    $command = './' + $project
-    Invoke-Expression $command
+    ./$command
     Pop-Location
 }
 
@@ -26,7 +26,7 @@ switch($args[0]) {
   }
 
   "init" {
-    $init_folder = "new"
+    $init_folder = "build"
     if ($args.Length -ge 2) {
       $init_folder = $args[1]
     }
