@@ -16,4 +16,4 @@ list(TRANSFORM SOURCES PREPEND "src/")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "include")
-target_link_libraries(${PROJECT_NAME} PRIVATE)
+target_link_libraries(${PROJECT_NAME} PRIVATE all_warnings warnings_are_errors)
