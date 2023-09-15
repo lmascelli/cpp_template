@@ -24,6 +24,10 @@ switch ($args[0]) {
     build
       run $args[1]
   }
+
+  "clean" {
+    Remove-Item -Force -Recurse -Path "./build"
+  }
   
   default {
     run
