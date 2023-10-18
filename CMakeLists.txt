@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.20)
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_BUILD_TYPE "Debug")
 
@@ -15,5 +15,5 @@ set(SOURCES
 list(TRANSFORM SOURCES PREPEND "src/")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
-target_include_directories(${PROJECT_NAME} PRIVATE "include")
+target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/include")
 target_link_libraries(${PROJECT_NAME} PRIVATE all_warnings warnings_are_errors)

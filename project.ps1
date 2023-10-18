@@ -3,7 +3,7 @@ $project = Split-Path -Path (Get-Location) -Leaf
 function build {
   New-Item -Type Directory -Path build -ErrorAction Ignore
     Push-Location build
-    cmake -G"Ninja" ..
+    cmake -G"Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
     cmake --build .
     Pop-Location
 }
