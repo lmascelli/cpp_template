@@ -1,9 +1,9 @@
 $project = Split-Path -Path (Get-Location) -Leaf
 
-function build {
+function build([string[]] $arg_list) {
   New-Item -Type Directory -Path build -ErrorAction Ignore
     Push-Location build
-    cmake -G"Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..
+    cmake -G"Ninja" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON $arg_list ..
     cmake --build .
     Pop-Location
 }
@@ -17,12 +17,12 @@ function run {
 
 switch ($args[0]) {
   "build" {
-    build
+    build $args[1..($args.Length-1)]
   }
 
   "run" {
-    build
-      run $args[1]
+    build $args[1..($args.Length-1)]
+    run
   }
 
   "clean" {
