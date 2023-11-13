@@ -10,6 +10,9 @@ using std::vector;
 using std::pair;
 using std::tuple;
 
+#include <string>
+using std::string;
+
 #include <iostream>
 using std::cout;
 using std::cin;
@@ -22,6 +25,7 @@ using std::function;
 #if __cplusplus >= 202002L
 #include <ranges>
 using namespace std::ranges;
+using std::begin, std::end;
 
 #include <optional>
 using std::optional, std::nullopt;
