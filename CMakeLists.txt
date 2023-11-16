@@ -7,6 +7,8 @@ cmake_path(GET CMAKE_CURRENT_SOURCE_DIR FILENAME ProjectName)
 string(REPLACE " " "_" PROJECT_NAME ${ProjectName})
 project(${PROJECT_NAME} LANGUAGES CXX)
 
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 include("cmake/compiler.cmake")
 
 set(SOURCES
