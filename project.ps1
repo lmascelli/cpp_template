@@ -17,11 +17,11 @@ function run {
 
 switch ($args[0]) {
   "build" {
-    build $args[1..($args.Length-1)]
+    build $args[1..($args.Length)]
   }
 
   "run" {
-    build $args[1..($args.Length-1)]
+    build $args[1..($args.Length)]
     run
   }
 
