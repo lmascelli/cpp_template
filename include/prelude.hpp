@@ -23,6 +23,12 @@ using std::endl;
 #include <functional>
 using std::function;
 
+#include <memory>
+using std::move;
+using std::unique_ptr;
+using std::shared_ptr;
+using std::weak_ptr;
+
 #if __cplusplus >= 202002L
 #include <ranges>
 using namespace std::ranges;
