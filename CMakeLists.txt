@@ -9,7 +9,17 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
+include(FetchContent)
 include("cmake/compiler.cmake")
+
+# FORMAT LIBRARY
+FetchContent_Declare(
+  fmt
+  GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+  GIT_TAG        master
+)
+
+FetchContent_MakeAvailable(fmt)
 
 set(SOURCES
   main.cpp)
@@ -18,4 +28,4 @@ list(TRANSFORM SOURCES PREPEND "src/")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/include")
-target_link_libraries(${PROJECT_NAME} PRIVATE all_warnings warnings_are_errors)
+target_link_libraries(${PROJECT_NAME} PRIVATE all_warnings warnings_are_errors fmt::fmt)
